@@ -13,10 +13,6 @@
    - Click the Security tab.
    - Check the box "Allow connections from network clients".
    - Restart XQuartz (Quit it completely and reopen it).
-   - Run in Mac terminal
-   ```bash
-   xhost +localhost
-   ```
 
 3. Create the `Dockerfile`
 
@@ -57,7 +53,12 @@
 
 5. Run the `C-SFRAT` tool
 
-   In the same folder as your `C-SFRAT` executable, run the following command
+   - Run in Mac terminal
+   ```bash
+   xhost +localhost
+   ```
+   
+   - In the same folder as your `C-SFRAT` executable, run the following command
 
    ```bash
    docker run --rm -e DISPLAY=host.docker.internal:0 -e LIBGL_ALWAYS_SOFTWARE=1 -v "$(pwd)":/app my-sfrat-app
